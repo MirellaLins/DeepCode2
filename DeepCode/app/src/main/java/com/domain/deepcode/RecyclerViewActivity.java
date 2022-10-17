@@ -25,11 +25,13 @@ public class RecyclerViewActivity extends AppCompatActivity {
         androidVersion.add("Android 9.0 Pie");
         androidVersion.add("Android 10 Q");
 
+        String[] colors = getResources().getStringArray(R.array.colors);
+
         RecyclerView rvLista = findViewById(R.id.rvVersoes);
 
         VersionAdapter adapter = new VersionAdapter();
 
-        adapter.setVersionNameList(androidVersion);
+        adapter.setVersionNameList(androidVersion, colors);
 
         rvLista.setAdapter(adapter);
 

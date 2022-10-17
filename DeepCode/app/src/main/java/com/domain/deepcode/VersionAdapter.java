@@ -7,13 +7,27 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.sql.Array;
 import java.util.ArrayList;
 
 public class VersionAdapter extends RecyclerView.Adapter<ItemViewHolder> {
 
     private ArrayList<String> versionNameList = new ArrayList<>();
+    private String[] colors;
 
-    public void setVersionNameList(ArrayList<String> list) {
+    public void setVersionNameList(ArrayList<String> list, String[] colors) {
+//        colors.add("#f44336");
+//        colors.add("#f44336");
+//        colors.add("#e91e63");
+//        colors.add("#9c27b0");
+//        colors.add("#2196f3");
+//        colors.add("#009688");
+//        colors.add("#4caf50");
+//        colors.add("#cddc39");
+//        colors.add("#ffeb3b");
+
+        this.colors = colors;
+
         this.versionNameList.addAll(list);
     }
 
@@ -33,6 +47,8 @@ public class VersionAdapter extends RecyclerView.Adapter<ItemViewHolder> {
 
         String versionName = this.versionNameList.get(position);
         holder.changeText(versionName);
+        String color = this.colors[position];
+        holder.changeBackgroundColor(color);
 
     }
 
