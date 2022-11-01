@@ -2,6 +2,7 @@ package com.domain.deepcode;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -42,6 +43,12 @@ public class MainActivity extends AppCompatActivity {
         btRequestID = findViewById(R.id.btRequestID);
         edNomeCurso = findViewById(R.id.edNomeCurso);
         edIdCurso = findViewById(R.id.edIdCurso);
+        Button btOpenList = findViewById(R.id.btOpenList);
+
+        btOpenList.setOnClickListener(view -> {
+            Intent intent = new Intent(this, MainActivity2.class);
+            startActivity(intent);
+        });
 
         btExecutar.setOnClickListener(view -> {
             String nomeCurso = edNomeCurso.getText().toString();
@@ -141,23 +148,4 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    private void executarGetAll() {
-        createCourseService().getAllCourses().enqueue(
-                new Callback<List<CoursesRes>>() {
-                    @Override
-                    public void onResponse(Call<List<CoursesRes>> call, Response<List<CoursesRes>> response) {
-                        // 400, 404, 401, 200, 201, 204 ......
-                        List<CoursesRes> cursos = response.body();
-                        for (CoursesRes item : cursos) {
-                            Log.i(MainActivity.class.getSimpleName(), item.getName());
-                        }
-                    }
-
-                    @Override
-                    public void onFailure(Call<List<CoursesRes>> call, Throwable t) {
-                        // 500, 503
-                        Log.e(MainActivity.class.getSimpleName(), "Error");
-                    }
-                });
-    }
 }

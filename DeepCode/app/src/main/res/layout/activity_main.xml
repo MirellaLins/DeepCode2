@@ -42,9 +42,20 @@
         android:id="@+id/btRequestID"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="12dp"
         android:text="Request ID"
         app:layout_constraintBottom_toTopOf="@+id/btExecutar"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btOpenList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Abrir Lista"
+        app:layout_constraintBottom_toTopOf="@+id/btRequestID"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edIdCurso" />
 </androidx.constraintlayout.widget.ConstraintLayout>
